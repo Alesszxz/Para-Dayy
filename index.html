@@ -1,0 +1,85 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta para Day</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fd7cfd;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .coracoes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .coracao {
+      position: absolute;
+      color: white;
+      font-size: 12px;
+      opacity: 1;
+    }
+
+    .conteudo {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .botao {
+      background-color: white;
+      color: #800080;
+      border: none;
+      padding: 15px 30px;
+      font-size: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .botao:hover {
+      background-color: #d8bfd8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fundo com corações fixos -->
+  <div class="coracoes" id="fundo-coracoes"></div>
+
+  <!-- Conteúdo principal -->
+  <div class="conteudo">
+    <a href="outrapagina.html">
+      <button class="botao">Para Day</button>
+    </a>
+  </div>
+
+  <!-- Script para adicionar corações fixos -->
+  <script>
+    const fundo = document.getElementById('fundo-coracoes');
+
+    for (let i = 0; i < 100; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('coracao');
+      heart.textContent = '❤️';
+      heart.style.top = Math.random() * 100 + 'vh';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (8 + Math.random() * 5) + 'px';
+      fundo.appendChild(heart);
+    }
+  </script>
+
+</body>
+</html>
